@@ -17,16 +17,10 @@ Calculator.prototype.add = (numbers) => {
 				.split('')
 				.map((itm) => '\\'+itm)
 				.join('')
-
-			
-			console.log(item)
 			return item
 		})
+
 		numbers = numbers.slice(numbers.search(/\n/)+1)
-
-
-
-
 		pattern = RegExp('('+delimiters.join('|')+')','g')
 
 	} else 	if (numbers.match(RegExp('^//(.+)\\n'))) {
@@ -34,7 +28,6 @@ Calculator.prototype.add = (numbers) => {
 		let delimiter = newarr[1]
 		let lengthToSlice = newarr.length
 		numbers = numbers.slice(lengthToSlice)
-
 		pattern = RegExp(delimiter, 'g')
 	} else pattern = /[\n,]/g
 
@@ -54,6 +47,4 @@ Calculator.prototype.add = (numbers) => {
 	if (negatives.length>0){
 		throw new TypeError('negatives are not allowed:' + negatives.join(','))
 	} else return summ
-
-	
 };
